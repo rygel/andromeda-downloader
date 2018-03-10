@@ -24,3 +24,4 @@ hs_err_pid*
 /.idea/workspace.xml
 /downloader/target/
 /calendar/target/
+/.idea/sonarlint/issuestore
