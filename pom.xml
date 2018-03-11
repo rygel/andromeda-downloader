@@ -75,10 +75,9 @@
     </distributionManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/rygel/fragments.git</connection>
-        <developerConnection>scm:git:https://github.com/rygel/fragments.git</developerConnection>
-        <url>scm:git:git@github.com/rygel/fragments.git</url>
-        <tag>release-0.0.4</tag>
+        <connection>scm:git:https://github.com/rygel/andromeda-tools.git</connection>
+        <developerConnection>scm:git:https://github.com/rygel/andromeda-tools.git</developerConnection>
+        <url>scm:git:git@github.com/rygel/andromeda-tools.git</url>
     </scm>
 
     <build>
@@ -133,37 +132,6 @@
                 </configuration>
                 <inherited>true</inherited>
             </plugin>
-            <plugin>
-                <!-- Build an executable JAR -->
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.4</version>
-                <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-                            <mainClass>PippoLauncher</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-            </plugin>
-
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.4.0</version>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>java</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <mainClass>PippoLauncher</mainClass>
-                </configuration>
-            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -215,7 +183,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.4</version>
+                <version>3.0.0</version>
                 <configuration>
                     <!-- Default configuration for all reports -->
                     <show>private</show>
