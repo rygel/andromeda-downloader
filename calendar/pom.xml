@@ -4,12 +4,12 @@
     <parent>
         <artifactId>andromeda-tools-parent</artifactId>
         <groupId>io.andromeda</groupId>
-        <version>0.0.1</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <artifactId>andromeda-tools-calendar</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <description>A ICS calendar abstraction.</description>
 
     <properties>

@@ -4,13 +4,13 @@
     <parent>
         <artifactId>andromeda-tools-parent</artifactId>
         <groupId>io.andromeda</groupId>
-        <version>0.0.1</version>
+        <version>0.0.2-SNAPSHOT</version>
     </parent>
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.andromeda</groupId>
     <artifactId>andromeda-tools-downloader</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-SNAPSHOT</version>
     <description>A download abstraction.</description>
 
     <properties>
