@@ -19,6 +19,8 @@ import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -29,14 +31,17 @@ public class Calendar {
 
     private File file;
     private String name;
+    private Locale locale;
     private String nameFilter = null;
     private boolean stripNameFilter = false;
     private String description;
+    private List<CalendarItem> events = new ArrayList<>();
     private SortedMap<Long, CalendarItem> entries = new TreeMap();
 
-    public Calendar(String name, File file) {
+    public Calendar(String name, File file, Locale locale) {
         this.name = name;
         this.file = file;
+        this.locale = locale;
     }
 
     public boolean updateFromFile() {
@@ -52,7 +57,7 @@ public class Calendar {
             for (CalendarComponent event: components) {
                 String eventName = event.getProperty(Property.SUMMARY).getValue().trim();
                 if ((nameFilter == null) || (eventName.startsWith(nameFilter))) {
-                    if ((stripNameFilter) & (nameFilter != null)) {
+                    if ((stripNameFilter) && (nameFilter != null)) {
                         eventName = eventName.substring(nameFilter.length());
                     }
                     LocalDateTime localDateTime = LocalDateTime.parse(event.getProperty(Property.DTSTART).getValue(), dateTimeFormatter);
@@ -109,5 +114,43 @@ public class Calendar {
 
     public void setStripNameFilter(boolean stripNameFilter) {
         this.stripNameFilter = stripNameFilter;
+    }
+
+    public SortedMap<Integer, List<CalendarItem>> getEventsCW() {
+        SortedMap<Integer, List<CalendarItem>> result = new TreeMap<>();
+        for (CalendarItem event: events) {
+            String week = event.getStartDateTime().format(DateTimeFormatter.ofPattern("w", locale));
+            int weekInt = Integer.parseInt(week);
+            List<CalendarItem> list;
+            List<CalendarItem> existingList = result.get(weekInt);
+
+            if (existingList == null) {
+                list = new ArrayList<>();
+                result.put(weekInt, list);
+            } else {
+                list = existingList;
+            }
+            list.add(event);
+        }
+        return result;
+    }
+
+    public Map<String, List<CalendarItem>> getEventsPerName() {
+        Map<String, List<CalendarItem>> result = new TreeMap<>();
+        for (CalendarItem event: events) {
+            //String name = "<h2><a href=\"" + event.url + "\">" + event.name + "</a></h2>";
+            String name = event.getName();
+            List<CalendarItem> list;
+            List<CalendarItem> existingList = result.get(name);
+
+            if (existingList == null) {
+                list = new ArrayList<>();
+                result.put(name, list);
+            } else {
+                list = existingList;
+            }
+            list.add(event);
+        }
+        return result;
     }
 }
