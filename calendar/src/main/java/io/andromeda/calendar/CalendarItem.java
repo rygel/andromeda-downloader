@@ -32,4 +32,16 @@ public class CalendarItem {
                 + location + "; " + description + "; "
                 + lastModified.withZoneSameInstant(utcZone).format(Calendar.outputDateTimeFormatter);
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public ZonedDateTime getStartDateTime() {
+        return startTime;
+    }
+
+    public ZonedDateTime getEndDateTime() {
+        return endTime;
+    }
 }

@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.File;
+import java.util.Locale;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -15,8 +16,8 @@ public class CalendarHandler {
 //
 //    }
 
-    public void addCalendar(File file) {
-        Calendar calendar = new Calendar(file.getName(), file);
+    public void addCalendar(File file, Locale locale) {
+        Calendar calendar = new Calendar(file.getName(), file, locale);
         calendar.updateFromFile();
         calendars.put(calendar.getName(), calendar);
     }
