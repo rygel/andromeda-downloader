@@ -11,6 +11,10 @@ public class CalendarHandler {
     private static final Logger LOGGER = LoggerFactory.getLogger(Calendar.class);
     private SortedMap<String, Calendar> calendars = new TreeMap<>();
 
+//    public CalendarHandler(Downloader downloader) {
+//
+//    }
+
     public void addCalendar(File file) {
         Calendar calendar = new Calendar(file.getName(), file);
         calendar.updateFromFile();
