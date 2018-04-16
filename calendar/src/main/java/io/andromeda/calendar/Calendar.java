@@ -18,6 +18,8 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -28,6 +30,8 @@ public class Calendar {
     private static final Logger LOGGER = LoggerFactory.getLogger(Calendar.class);
     private static final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmssX");
     public static final DateTimeFormatter outputDateTimeFormatter = DateTimeFormatter.ofPattern("dd.MM.yyyy HH:mm:ss");
+    public static final Comparator<CalendarItem> startDateTimeComparator =
+            Comparator.comparing(CalendarItem::getStartDateTime);
 
     private File file;
     private String name;
@@ -69,11 +73,13 @@ public class Calendar {
                     String location = event.getProperty(Property.LOCATION).getValue().trim();
                     String eventDescription = event.getProperty(Property.DESCRIPTION).getValue().trim();
                     CalendarItem calendarItem = new CalendarItem(this, eventName, startTime, endTime, lastModified, location, eventDescription);
+                    events.add(calendarItem);
                     entries.put(startTime.toEpochSecond(), calendarItem);
                 } else {
                   LOGGER.debug("Event with the name \"{}\" was filtered out due to active name filter \"{}\".", eventName, nameFilter);
                 }
             }
+            Collections.sort(events, startDateTimeComparator);
         } catch (FileNotFoundException e) {
             LOGGER.error(e.toString());
             return false;
@@ -138,14 +144,14 @@ public class Calendar {
     public Map<String, List<CalendarItem>> getEventsPerName() {
         Map<String, List<CalendarItem>> result = new TreeMap<>();
         for (CalendarItem event: events) {
-            //String name = "<h2><a href=\"" + event.url + "\">" + event.name + "</a></h2>";
-            String name = event.getName();
+            //String eventName = "<h2><a href=\"" + event.url + "\">" + event.eventName + "</a></h2>";
+            String eventName = event.getName();
             List<CalendarItem> list;
-            List<CalendarItem> existingList = result.get(name);
+            List<CalendarItem> existingList = result.get(eventName);
 
             if (existingList == null) {
                 list = new ArrayList<>();
-                result.put(name, list);
+                result.put(eventName, list);
             } else {
                 list = existingList;
             }
@@ -153,4 +159,5 @@ public class Calendar {
         }
         return result;
     }
+
 }
