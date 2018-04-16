@@ -1,6 +1,5 @@
 package io.andromeda.calendar;
 
-import io.andromeda.test.web.PippoLauncher;
 import net.fortuna.ical4j.data.CalendarBuilder;
 import net.fortuna.ical4j.data.ParserException;
 import net.fortuna.ical4j.model.ComponentList;
@@ -18,7 +17,6 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.List;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -62,10 +60,7 @@ public class Calendar {
         } catch (FileNotFoundException e) {
             LOGGER.error(e.toString());
             return false;
-        } catch (IOException e) {
-            LOGGER.error(e.toString());
-            return false;
-        } catch (ParserException e) {
+        } catch (IOException | ParserException e) {
             LOGGER.error(e.toString());
             return false;
         }
