@@ -2,6 +2,7 @@ package io.andromeda.calendar;
 
 import java.io.File;
 import java.nio.file.Paths;
+import java.util.Locale;
 import java.util.Map;
 
 import ch.qos.logback.classic.spi.LoggingEvent;
@@ -29,7 +30,7 @@ public class CalendarTest extends Assert {
     public void testLanguageFragments() throws Exception {
         String currentPath = System.getProperty("user.dir");
         File file = new File(currentPath + "/test.ics");
-        io.andromeda.calendar.Calendar cal = new io.andromeda.calendar.Calendar("martin", file);
+        io.andromeda.calendar.Calendar cal = new io.andromeda.calendar.Calendar("martin", file, Locale.ENGLISH);
         cal.updateFromFile();
         for (Map.Entry<Long, CalendarItem> entry: cal.getEntries().entrySet()) {
             //LOGGER.info(entry.getKey() + ", " + entry.getValue().toString());
@@ -46,7 +47,7 @@ public class CalendarTest extends Assert {
 
         String currentPath = System.getProperty("user.dir");
         File file = new File(currentPath + "/file_not_found.ics");
-        io.andromeda.calendar.Calendar cal = new io.andromeda.calendar.Calendar("test", file);
+        io.andromeda.calendar.Calendar cal = new io.andromeda.calendar.Calendar("test", file, Locale.ENGLISH);
         cal.updateFromFile();
 
         verify(mockAppender).doAppend(argThat(new ArgumentMatcher() {

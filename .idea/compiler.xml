@@ -6,12 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="andromeda-tools-calendar" />
+        <module name="andromeda-tools-downloader" />
         <module name="calendar" />
         <module name="downloader" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="andromeda-tools" target="1.8" />
+      <module name="andromeda-tools-calendar" target="1.8" />
+      <module name="andromeda-tools-downloader" target="1.8" />
+      <module name="andromeda-tools-parent" target="1.8" />
       <module name="calendar" target="1.8" />
       <module name="downloader" target="1.8" />
     </bytecodeTargetLevel>

@@ -3,6 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/andromeda-tools.iml" filepath="$PROJECT_DIR$/andromeda-tools.iml" />
+      <module fileurl="file://$PROJECT_DIR$/calendar/andromeda-tools-calendar.iml" filepath="$PROJECT_DIR$/calendar/andromeda-tools-calendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/downloader/andromeda-tools-downloader.iml" filepath="$PROJECT_DIR$/downloader/andromeda-tools-downloader.iml" />
+      <module fileurl="file://$PROJECT_DIR$/andromeda-tools-parent.iml" filepath="$PROJECT_DIR$/andromeda-tools-parent.iml" />
       <module fileurl="file://$PROJECT_DIR$/calendar/calendar.iml" filepath="$PROJECT_DIR$/calendar/calendar.iml" />
       <module fileurl="file://$PROJECT_DIR$/downloader/downloader.iml" filepath="$PROJECT_DIR$/downloader/downloader.iml" />
     </modules>
