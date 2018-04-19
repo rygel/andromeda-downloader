@@ -1,0 +1,49 @@
+BEGIN:VCALENDAR
+PRODID:-//Google Inc//Google Calendar 70.9054//EN
+VERSION:2.0
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Test Calendar
+X-WR-TIMEZONE:Europe/Berlin
+X-WR-CALDESC:This is a test calendar!
+BEGIN:VEVENT
+DTSTART:20180413T090000Z
+DTEND:20180413T121500Z
+DTSTAMP:20180403T161211Z
+UID:1kbu87kfqs7mf7a6oc9t00q9ru@google.com
+CREATED:20180318T212830Z
+DESCRIPTION:Phasellus porta justo velit, ac blandit urna convallis a. Duis
+ tempor quam vitae purus sollicitudin, ac volutpat libero maximus. Integer
+ facilisis fringilla elit, non vehicula velit hendrerit a. Vestibulum maxim
+ us, arcu lacinia elementum auctor, tellus nisi ornare neque, ac dictum fel
+ is neque in ante. Phasellus a pulvinar tortor. Nulla congue suscipit aucto
+ r. Morbi posuere sollicitudin tortor volutpat vehicula. In quis mauris int
+ erdum, fermentum neque a, venenatis ante. Praesent id metus tempus, ullamc
+ orper risus vel, ullamcorper tortor. Donec at tellus felis. Nam condimentu
+ m, augue a egestas rutrum, lectus lorem luctus odio, quis volutpat eros fe
+ lis in urna. Aenean vehicula enim vitae tellus vestibulum venenatis. Integ
+ er dignissim lobortis lacinia. Vestibulum gravida dolor convallis luctus v
+ ulputate.
+LAST-MODIFIED:20180329T180613Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY:11-14 Uhr Test Lorem ipsum dolor sit amet, consectetur adipiscing e
+ lit. Proin quis ipsum in risus gravida malesuada a ac neque.
+TRANSP:OPAQUE
+END:VEVENT
+BEGIN:VEVENT
+DTSTART:20180512T110000Z
+DTEND:20180512T130000Z
+DTSTAMP:20180403T161211Z
+UID:0qjat5i4gn2g494as826vdh9r8@google.com
+CREATED:20180323T134848Z
+DESCRIPTION:Phasellus porta justo velit, ac blandit urna convallis a.
+LAST-MODIFIED:20180327T105049Z
+LOCATION:
+SEQUENCE:0
+STATUS:CONFIRMED
+SUMMARY: 13:45 Uhr Test test.
+TRANSP:OPAQUE
+END:VEVENT
+END:VCALENDAR
